@@ -4,6 +4,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender){
         console.log("Message received");
         toggle();
     }
+    return 'Dummy response to keep the console quite';
 });
 
 chrome.runtime.onMessage.addListener((msg, sender) => {
@@ -11,25 +12,43 @@ chrome.runtime.onMessage.addListener((msg, sender) => {
         console.log('Message received for clicked');
         toggle();
     }
+    return 'Dummy response to keep the console quite';
 });
 
-const iframe = document.createElement('iframe');
-iframe.style.background = "gray";
-iframe.style.height = "50%";
-iframe.style.width = "0px";
-iframe.style.position = "fixed";
-iframe.style.top = "0px";
-iframe.style.right = "0px";
-iframe.style.zIndex = "9000000000000000000";
-iframe.style.border = "0px"; 
-iframe.src = chrome.runtime.getURL("popup.html")
+const div = document.createElement('div');
+div.style.background = "#EFF1FB";
+div.style.height = "70%";
+div.style.width = "0px";
+div.style.position = "absolute";
+div.style.bottom = "0px";
+div.style.right = "0px";
+div.style.zIndex = "9000000000000000000";
+div.style.border = "0px";
 
-document.body.appendChild(iframe);
+div.innerHTML= `<object type="text/html" data=${chrome.runtime.getURL("popup.html")} height=100% width=100%></object>`
+
+// div.innerHTML='<object type="type/html" data="./popup.html" ></object>';
+// div.innerHTML='<obj type="text/html" data="popup.html" width="300" height="1000"></object>';
+// div.src = chrome.runtime.getURL("popup.html")
+
+
+
+document.body.appendChild(div);
 
 function toggle() {
-    if(iframe.style.width == "0px") {
-        iframe.style.width = "300px";
+    if(div.style.width == "0px") {
+        div.style.width = "300px";
     } else {
-        iframe.style.width = "0px";
+        div.style.width = "0px";
     }
 }
+
+function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }

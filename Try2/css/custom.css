@@ -1,0 +1,47 @@
+body {
+    font-family: "Helvetica Neue" !important;
+}
+.br-header {
+    color: #FFFFFF !important;
+    font-size: 20px;
+    padding: 1vh 0px 1vh 1vw;
+    background-color: #455560;
+}
+
+.br-header .company-logo {
+    text-transform: uppercase;
+}
+
+.br-header .company-logo img {
+    height: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+  /* Table setting*/
+
+table { 
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%
+}
+table td {
+    padding: 0;
+    margin: 0;
+}
+
+#outer
+{
+    width:100%;
+    text-align: left;
+}
+.inner
+{
+    display: inline-block;
+}
+
+tr.border_bottom td {
+  border-bottom: 1px solid black;
+}

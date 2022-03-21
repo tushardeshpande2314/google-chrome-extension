@@ -18,9 +18,10 @@
     "content_scripts":[
         {
             "matches": [
-                "https://*/*",
-                "http://*/*"
+                "https://www.google.com/*",
+                "http://www.google.com/*"
             ],
+            "css":["css/custom.css"],
             "js": ["side-panel.js"]
         }
     ],
@@ -33,7 +34,7 @@
     "web_accessible_resources":[
         {
             "resources": ["popup.html"],
-            "matches": ["https://*/*","http://*/*"]
+            "matches": ["https://www.google.com/*","http://www.google.com/*"]
         }
     ]
 }
